@@ -1,0 +1,23 @@
+<?php
+require_once ('connected.php');
+
+if (isset($_REQUEST['fname']) && isset($_REQUEST['lname']) && isset($_REQUEST['email']) && isset($_REQUEST['email']) && isset($_REQUEST['password'])){
+	//decleartion variabel
+	$fname 		= $_REQUEST['fname'];
+	$lname 		= $_REQUEST['lname'];
+	$email 		= $_REQUEST['email'];
+	$username 	= $_REQUEST['username'];
+	$password	= $_REQUEST['password'];
+
+	// database from insert data querey
+
+	$insertQuerey = "INSERT INTO admin_users (fname,lname,email,username,password)VALUES('$fname','$lname','$email','$username','$password')";
+	$runQuerey = mysqli_query($con,$insertQuerey);
+
+}
+
+//$arrData=mysqli_fetch_array($runQuerey);
+
+if ($runQuerey==true) {
+	header("location:index.php?action=true");
+}
